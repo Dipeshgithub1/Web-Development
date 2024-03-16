@@ -1,0 +1,10 @@
+event handling in JS
+node.event = () => {
+    handle here
+}
+
+Event listenters
+
+node.addEventListenters(event,callback)
+
+node.removeEventListenters(event,callback)

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur JavaScript</title>
+</head>
+<body>
+    <h1>chai aur JavaScript</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    
+    <script>
+        let intervalId; // Variable to hold interval ID
+        const colors = ['red', 'green', 'blue']; // Array of colors to cycle through
+        let currentColorIndex = 0; // Index of the current color
+        
+        // Function to log current time
+        const sayDate = function(str) {
+            console.log(str, Date.now());
+        };
+
+        // Function to change background color
+        const changeBackgroundColor = function() {
+            document.body.style.backgroundColor = colors[currentColorIndex];
+            currentColorIndex = (currentColorIndex + 1) % colors.length; // Move to the next color in the array
+        };
+
+        // Event listener for start button
+        document.getElementById('start').addEventListener('click', function() {
+            // Start the interval if it's not already running
+            if (!intervalId) {
+                intervalId = setInterval(sayDate, 1000, "RIA");
+                changeBackgroundColor(); // Change background color immediately
+            }
+        });
+
+        // Event listener for stop button
+        document.getElementById('stop').addEventListener('click', function() {
+            // Stop the interval if it's running
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null; // Reset the interval ID
+                document.body.style.backgroundColor = "white"; // Revert background color to white
+            }
+        });
+    </script>
+</body>
+</html>
+
