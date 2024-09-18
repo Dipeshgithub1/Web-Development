@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github user</title>
+</head>
+<body style="background-color: whitesmoke;">
+
+    <div id="userCard" style="color: blue;">
+        <img id="avatar" src="https://avatars.githubusercontent.com/u/138698736?v=4" alt="User Avatar" style="width: 100px; height: 100px; border-radius: 50%;">
+        <div id="username"></div>
+        <div id="followers"></div>
+        <div id="following"></div>
+    </div>
+
+    <script>
+        const requestUrl = "https://api.github.com/users/Dipeshgithub1";
+        const xsh = new XMLHttpRequest();
+
+        xsh.onreadystatechange = function(){
+            if(xsh.readyState === 4 && xsh.status === 200){
+                const data = JSON.parse(this.responseText);
+                console.log(data)
+                const userCard = document.getElementById('userCard');
+                const avatar = document.getElementById('avatar');
+                const username = document.getElementById('username');
+                const followers = document.getElementById('followers');
+                const following = document.getElementById('following');
+
+                avatar.src = data.avatar_url;
+                username.textContent = "Username: " + data.login;
+                followers.textContent = "Followers: " + data.followers;
+                following.textContent = "Following: " + data.following;
+
+            }
+        }
+        xsh.open('GET',requestUrl);
+        xsh.send();
+    </script>
+</body>
+</html>

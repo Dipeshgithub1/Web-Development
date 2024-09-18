@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121;">
+    
+<script>
+  const requestUrl = 'https://api.github.com/users/Dipeshgithub1';
+   const xsh = new XMLHttpRequest();
+   xsh.open('GET',requestUrl);
+   xsh.onreadystatechange = function(){
+    console.log(xsh.readyState)
+
+    if(xsh.readyState === 4){
+      const data = JSON.parse(this.responseText)
+      console.log(typeof data)
+      console.log(data.followers)
+    }
+   }
+   
+   xsh.send();
+   //console.log("here");
+</script>
+</body>
+</html>

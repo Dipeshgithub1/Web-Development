@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body>
+    
+</body>
+<script>
+   // function init() {
+    //let name = "mozilla";
+   //function disaplayName(){
+       // console.log(disaplayName)
+    //}
+    //disaplayName();
+//}
+//init();
+
+//function outer(){
+   // let username = "Dipesh M"
+    
+    //function inner(){
+     //   let secret = "my@123"
+     //console.log(username)
+    //}
+    //function innerTwo(){
+      //  console.log(username)
+       // console.log(secret)
+    //}
+    //inner();
+    //innerTwo();
+//}
+//outer();
+//console.log("too outer",username)
+function makeFun(){
+    const name = "mozilla";
+
+    function disaplayName(){
+        console.log(name)
+    }
+    return disaplayName;
+}
+const myFun = makeFun();
+myFun();
+
+</script>
+</html>
